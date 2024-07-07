@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Donation Page</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-image: url("bg.png");
+        /* Replace with your background image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px #0000001a;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 10rem;
+        position: relative;
+
+      }
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .separator {
+        height: 4px;
+        background: #008caa;
+        width: 50px;
+        margin: 20px 0;
+      }
+
+      .details,
+      .highlight {
+        margin: 10px 0;
+        font-size: 1rem;
+        line-height: 24px;
+      }
+
+      .highlight {
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .label-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .label {
+        background: #6f3f87;
+        color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 0;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .navigator {
+        position: absolute;
+        top: -15px;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent #6f3f87 transparent;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .buttons button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .button-78p {
+        background: #6f3f87;
+        color: white;
+        height: 3rem;
+      }
+
+      .button-22p {
+        background: #173145;
+        color: white;
+        height: 3rem;
+      }
+
+      .label {
+        max-height: 200px;
+        overflow: auto;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .label::-webkit-scrollbar {
+        display: none;
+      }
+
+
+
+      @media (max-width: 768px) {
+
+        .card {
+          padding: 1.5rem;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px #0000001a;
+          max-width: 50%;
+          margin: 0 1rem;
+        }
+
+        .title {
+          font-size: 1.25rem;
+        }
+
+        .separator {
+          height: 4px;
+          width: 50px;
+          margin: 15px 0;
+        }
+
+        .details,
+        .highlight {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+
+        .highlight {
+          font-weight: bold;
+          margin-top: 0.75rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .label-container {
+          margin: 15px 0;
+        }
+
+        .buttons {
+          gap: 5px;
+        }
+
+        .buttons button {
+          height: 2.5rem;
+          font-size: 0.875rem;
+        }
+
+        .button-78p,
+        .button-22p {
+          height: 2.5rem;
+        }
+
+        .label {
+          max-height: 150px;
+        }
+      }
+
+      @media (max-width: 375px) {
+
+        body,
+        html {
+          justify-content: center;
+          padding-top: 2rem;
+          background-repeat: no-repeat;
+        }
+
+        .card {
+          padding: 1rem;
+          max-width: 90%;
+          margin: 0 2rem;
+
+        }
+
+        .title {
+          font-size: 1.125rem;
+        }
+
+        .separator {
+          height: 3px;
+          width: 40px;
+          margin: 10px 0;
+        }
+
+        .details,
+        .highlight {
+          font-size: 0.75rem;
+          line-height: 1rem;
+        }
+
+        .highlight {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .buttons button {
+          height: 2rem;
+          font-size: 0.75rem;
+        }
+
+        .label-container {
+          margin: 10px 0;
+        }
+
+        .label {
+          max-height: 100px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="title">Where your money goes</div>
+      <div class="separator"></div>
+      <div class="details">
+        We're committed to making sure your donation has the biggest possible
+        impact for those in greatest need.
+      </div>
+      <div class="details highlight">
+        Select the numbers below to see how every pound you donate is used...
+      </div>
+      <div class="buttons">
+        <button class="button-78p" onclick="showDetails('78p')">78p</button>
+        <button class="button-22p" onclick="showDetails('22p')">22p</button>
+      </div>
+      <div class="label-container">
+        <div class="navigator"></div>
+        <div id="highlight" class="highlight label">
+          <span class="highlight-title">78p funds life-changing projects</span>
+          <br />
+          That includes ensuring earthquake survivors like Saleh in Syria have
+          food and shelter and empowering the Lithuwo villagers in Zambia.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.onload = () => {
+        showDetails("78p");
+      };
+
+      function showDetails(type) {
+        const label = document.getElementById("highlight");
+        const navigator = document.querySelector(".navigator");
+        const button78p = document.querySelector(".button-78p");
+        const button22p = document.querySelector(".button-22p");
+        const screenWidth = window.innerWidth <= 375;
+
+        if (type === "78p") {
+          navigator.style.left = `${button78p.offsetLeft + (screenWidth ? 10 : 20)}px`;
+          navigator.style.borderColor = "transparent transparent #6f3f87 transparent";
+          label.style.backgroundColor = "#6F3F87";
+
+          label.innerHTML = `
+            <span class="highlight-title">78p funds life-changing projects</span>
+            <br>
+            That includes ensuring earthquake survivors like Saleh in Syria have food and shelter and empowering the Lithuwo villagers in Zambia.
+          `;
+        } else {
+          navigator.style.left = `${button22p.offsetLeft + (screenWidth ? 10 : 20)}px`;
+          navigator.style.borderColor = "transparent transparent #173145 transparent";
+          label.style.backgroundColor = "#173145";
+
+          label.innerHTML = `
+            <span class="highlight-title">22p ensures we can continue to transform lives tomorrow</span>
+            <br>
+            That includes funding aid support costs, which allows us to make sure your donation has a long-term impact.
+          `;
+        }
+      }
+    </script>
+  </body>
+
+</html>
