@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Donation Page</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body,
       html {
         margin: 0;
@@ -21,7 +27,6 @@
         justify-content: flex-end;
         align-items: center;
         width: 100%;
-        box-sizing: border-box;
       }
 
       .card {
@@ -168,6 +173,11 @@
           margin: 15px 0;
         }
 
+        .navigator {
+          position: absolute;
+          top: -8px;
+        }
+
         .buttons {
           gap: 5px;
         }
@@ -187,23 +197,22 @@
         }
       }
 
-      @media (max-width: 375px) {
+      @media (max-width: 400px) {
 
         body,
         html {
           justify-content: center;
-          padding-top: 2rem;
-          background-repeat: no-repeat;
-           background-size:cover;
-
-        background-image: url("mobile.jpeg"); 
-       }
+    
+          background-size: cover;
+          align-items: end;
+          background-image: url("mobile.jpeg");
+        }
 
         .card {
           padding: 1rem;
           max-width: 90%;
           margin: 0 2rem;
-
+          margin-bottom: 1.5rem;
         }
 
         .title {
