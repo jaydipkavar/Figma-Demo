@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hover Effect</title>
+        <style>
+            body {
+                display: flex;
+                height: 90vh;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                margin: 0;
+            }
+
+            .cursor {
+                position: fixed;
+
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border: 1px solid white;
+                transition: 0.1s;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                background-color: white;
+                mix-blend-mode: difference;
+
+
+            }
+
+            ul {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+
+            ul li {
+                list-style: none;
+              
+            }
+
+            ul li a {
+                position: relative;
+                display: inline-block;
+                margin: 10px 0;
+                text-decoration: none;
+                font-size: 4em;
+                color: white;
+                transition: 0.2s;
+            }
+
+            ul li:hover~.cursor {
+                transform: scale(6);
+            }
+        </style>
+    </head>
+
+    <body>
+
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Contact</a></li>
+            <div class="cursor"></div>
+        </ul>
+
+
+        <script>
+            const hoverdiv = document.querySelector('.cursor');
+
+            document.addEventListener('mousemove', (event) => {
+                const x = event.clientX;
+                const y = event.clientY;
+                hoverdiv.style.left = x + 'px'; 
+                hoverdiv.style.top = y + 'px';
+            });
+        </script>
+    </body>
+
+</html>
